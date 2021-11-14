@@ -26,8 +26,8 @@ namespace SilverScreenRelics.Data.Entities
 
         [ForeignKey("RelicTypes")]
         public int RelicId { get; set; }//Composite Key/
-        public virtual RelicType RelicTypes { get; set; }
-        public virtual ICollection<ArtItem> ArtItems { get; set; }
+       // public virtual RelicType RelicTypes { get; set; }
+       // public virtual ICollection<ArtItem> ArtItems { get; set; }
 
         [Required]
         public bool? IsActive { get; set; }
