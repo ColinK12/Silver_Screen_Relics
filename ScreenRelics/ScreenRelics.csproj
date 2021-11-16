@@ -168,8 +168,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArtItemController.cs" />
+    <Compile Include="Controllers\ArtListingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\TranactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -237,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\ArtItem\" />
+    <Folder Include="Views\ArtListings\" />
+    <Folder Include="Views\Transactions\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -255,6 +261,10 @@
     <ProjectReference Include="..\SilverScreenRelics.Data\SilverScreenRelics.Data.csproj">
       <Project>{B599D9C2-93CF-4C0A-8B39-7858384308F8}</Project>
       <Name>SilverScreenRelics.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SilverScreenRelics.Models\SilverScreenRelics.Models.csproj">
+      <Project>{A5BCF911-6F1A-40E4-82D1-004B312C2EB0}</Project>
+      <Name>SilverScreenRelics.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

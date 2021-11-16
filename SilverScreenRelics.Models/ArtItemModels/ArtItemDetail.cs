@@ -1,32 +1,28 @@
 ﻿using ScreenRelics.Data;
+using SilverScreenRelics.Data.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SilverScreenRelics.Data.Entities
+namespace SilverScreenRelics.Models.ArtItemModels
 {
-    public class ArtItem
+    public class ArtItemDetail
     {
-        [Key]
-        public int ArtItemId { get; set; } //Primary Key
-        [Required]
+
+        [Display(Name = "Movie Title")]
         public string ArtItemTitle { get; set; }
-        [Required]
+
+        [Display(Name = "Art Item Description")]
         public string ArtItemDescription { get; set; }
         [Required]
         public double ArtItemPrice { get; set; }
-
-        [ForeignKey("User")]
-        public string UserId { get; set; }
-        public virtual ApplicationUser User { get; set; }
-
-        [Required]
         public bool? IsActive { get; set; }
-        [Required]
+
+        [Display(Name = "Date of Posting")]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
     }

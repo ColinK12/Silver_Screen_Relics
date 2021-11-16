@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using SilverScreenRelics.Data.Entities;
 
 namespace ScreenRelics.Data
 {
@@ -33,10 +34,10 @@ namespace ScreenRelics.Data
         {
             return new ApplicationDbContext();
         }
-        //public DbSet<ArtItem> ArtItemsSell { get; set; }
-        //public DbSet<RelicType> RelicType { get; set; }
-        //public DbSet<Transaction> Transactions { get; set; }
-        //public DbSet<ArtListings> Art_Listings { get; set; }
+        public DbSet<ArtItem> ArtItemsSell { get; set; }
+        public DbSet<RelicType> RelicType { get; set; }
+        public DbSet<Transactions> Transactions { get; set; }
+        public DbSet<ArtListings> Art_Listings { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

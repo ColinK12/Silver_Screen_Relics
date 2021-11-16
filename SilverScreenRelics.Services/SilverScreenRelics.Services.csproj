@@ -54,11 +54,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtItemService.cs" />
+    <Compile Include="ArtListingsServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransactionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SilverScreenRelics.Data\SilverScreenRelics.Data.csproj">
+      <Project>{B599D9C2-93CF-4C0A-8B39-7858384308F8}</Project>
+      <Name>SilverScreenRelics.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SilverScreenRelics.Models\SilverScreenRelics.Models.csproj">
+      <Project>{A5BCF911-6F1A-40E4-82D1-004B312C2EB0}</Project>
+      <Name>SilverScreenRelics.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
