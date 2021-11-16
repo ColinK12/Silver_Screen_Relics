@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SilverScreenRelics.Data.Entities.ArtItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtItemTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtItemDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArtItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedUtc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedUtc)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtItemTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtItemDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArtItemPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedUtc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedUtc)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ArtItemId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ArtItemId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ArtItemId })
+        </td>
+    </tr>
+}
+
+</table>

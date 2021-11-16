@@ -1,0 +1,42 @@
+﻿@model SilverScreenRelics.Models.Movie.MovieDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MovieDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieReleaseYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieReleaseYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserRating)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

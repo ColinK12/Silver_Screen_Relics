@@ -27,6 +27,12 @@ namespace SilverScreenRelics.Services
             return _dbContext.SaveChanges() == 1;
 
         }
+
+        public bool TransactionsCreate(TransactionsCreate model)
+        {
+            throw new NotImplementedException();
+        }
+
         // Get all
         public List<TransactionsDetails> GetAllTransactions()
         {
