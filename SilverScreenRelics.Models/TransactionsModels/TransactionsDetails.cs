@@ -13,7 +13,7 @@ namespace SilverScreenRelics.Models.TransactionsModels
     {
         [Key]
         public int TransactionId { get; set; }
-        [Required]
+
         public int UserId { get; set; }
 
         [ForeignKey("ArtItem")]

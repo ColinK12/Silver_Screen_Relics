@@ -19,8 +19,6 @@ namespace ScreenRelics.Data
             // Add custom user claims here
             return userIdentity;
         }
-       // public virtual ICollection<ArtListings> ArtListings { get; set; } = new List<ArtListings>();
-       // public virtual ICollection<RelicType> RelicType { get; set; } = new List<RelicType>();
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -34,12 +32,14 @@ namespace ScreenRelics.Data
         {
             return new ApplicationDbContext();
         }
+
         public DbSet<ArtItem> ArtItemsSell { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Transactions> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+
             modelBuilder
                 .Conventions
                 .Remove<PluralizingTableNameConvention>();

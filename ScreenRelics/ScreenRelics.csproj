@@ -171,7 +171,8 @@
     <Compile Include="Controllers\ArtItemController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TranactionController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,7 +241,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\ArtItem\" />
-    <Folder Include="Views\ArtListings\" />
+    <Folder Include="Views\Movie\" />
     <Folder Include="Views\Transactions\" />
   </ItemGroup>
   <ItemGroup>
@@ -264,6 +265,10 @@
     <ProjectReference Include="..\SilverScreenRelics.Models\SilverScreenRelics.Models.csproj">
       <Project>{A5BCF911-6F1A-40E4-82D1-004B312C2EB0}</Project>
       <Name>SilverScreenRelics.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SilverScreenRelics.Services\SilverScreenRelics.Services.csproj">
+      <Project>{21980147-D77C-424F-AE92-A3A96D205E25}</Project>
+      <Name>SilverScreenRelics.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

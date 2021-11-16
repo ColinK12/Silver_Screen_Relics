@@ -57,12 +57,29 @@
     <Compile Include="Entities\ArtItem.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Entities\Transactions.cs" />
+    <Compile Include="Migrations\202111142104450_InitialCreate.cs" />
+    <Compile Include="Migrations\202111142104450_InitialCreate.Designer.cs">
+      <DependentUpon>202111142104450_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111161908094_FirstMigration.cs" />
+    <Compile Include="Migrations\202111161908094_FirstMigration.Designer.cs">
+      <DependentUpon>202111161908094_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IdentityModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202111142104450_InitialCreate.resx">
+      <DependentUpon>202111142104450_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111161908094_FirstMigration.resx">
+      <DependentUpon>202111161908094_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -47,7 +47,7 @@ namespace SilverScreenRelics.Services
         }
 
         //Get (details by id)
-        public ArtItemDetail GetartItemById(int artItemId)
+        public ArtItemDetail GetArtItemById(int artItemId)
         {
             var artItemEntity = _dbContext.ArtItemsSell.Find(artItemId);
             if (artItemEntity == null)

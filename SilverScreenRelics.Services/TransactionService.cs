@@ -18,7 +18,6 @@ namespace SilverScreenRelics.Services
             Transactions entity = new Transactions
             {
                 TransactionId = model.TransactionId,
-                UserId = model.User,
                 ArtItemId = model.ArtItemId,
                 ArtItemPrice = model.ArtItemPrice,
 
@@ -33,10 +32,9 @@ namespace SilverScreenRelics.Services
         {
             {
                 var transactionEntities = _dbContext.Transactions.ToList();
-                var transactionList = transactionEntities.Select(t => new TransactionDetail
+                var transactionList = transactionEntities.Select(t => new TransactionsDetails
                 {
                     TransactionId = t.TransactionId,
-                    UserId = t.UserId,
                     ArtItemId = t.ArtItemId,
                     ArtItemPrice = t.ArtItemPrice,
 
@@ -54,7 +52,6 @@ namespace SilverScreenRelics.Services
 
             var transactionDetail = new TransactionsDetails
             {
-                UserId = transactionEntity.UserId,
                 ArtItemId = transactionEntity.ArtItemId,
                 ArtItemPrice = transactionEntity.ArtItemPrice,
 
@@ -67,7 +64,6 @@ namespace SilverScreenRelics.Services
             var transactionEntity = _dbContext.Transactions.SingleOrDefault(e => e.TransactionId == model.TransactionId);
 
             transactionEntity.TransactionId = model.TransactionId;
-            transactionEntity.UserId = model.UserId;
             transactionEntity.ArtItemId = model.ArtItemId;
             transactionEntity.ArtItemPrice = model.ArtItemPrice;
 

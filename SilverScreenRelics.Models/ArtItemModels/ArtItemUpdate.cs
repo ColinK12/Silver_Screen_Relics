@@ -9,6 +9,7 @@ namespace SilverScreenRelics.Models.ArtItemModels
 {
     public class ArtItemUpdate
     {
+        public int ArtItemId { get; set; }
         [Required]
         [Display(Name = "ArtItemTitle")]
         public string ArtItemTitle { get; set; }

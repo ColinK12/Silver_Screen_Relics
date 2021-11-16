@@ -11,8 +11,7 @@ namespace SilverScreenRelics.Services
 {
     public class MovieServices
     {
-        private readonly ApplicationDbContext _dbContext = new ApplicationDbContext();
-        //Movie Create
+    private readonly ApplicationDbContext _dbContext = new ApplicationDbContext();
         public bool CreateMovie(MovieCreate model)
         {
             Movie entity = new Movie
@@ -20,63 +19,61 @@ namespace SilverScreenRelics.Services
                 MovieId = model.MovieId,
                 MovieTitle = model.MovieTitle,
                 MovieReleaseYear = model.MovieReleaseYear,
-                UserRating = model.UserRating,
-
-    };
+                UserRating = model.UserRating
+            };
 
             _dbContext.Movies.Add(entity);
             return _dbContext.SaveChanges() == 1;
 
         }
-        // Movie Get all
+        // Get all
         public List<MovieDetails> GetAllMovies()
         {
             {
                 var movieEntities = _dbContext.Movies.ToList();
-                var movies = movieEntities.Select(m => new MovieDetails
+                var transactionList = movieEntities.Select(t => new MovieDetails
                 {
-                    MovieTitle = m.MovieTitle,
-                    MovieReleaseYear = m.MovieReleaseYear,
-                    UserRating = m.UserRating,
+                    MovieTitle = t.MovieTitle,
+                    MovieReleaseYear = t.MovieReleaseYear,
+                    UserRating = t.UserRating,
 
                 }).ToList();
-                return movies;
+                return transactionList;
             }
         }
 
-        //Movie Get (details by id)
+        //Get (details by id)
         public MovieDetails GetMovieById(int movieId)
         {
-            var movieEntity = _dbContext.Movies.Find(movieId);
-            if (movieEntity == null)
+            var movieEntities = _dbContext.Movies.Find(movieId);
+            if (movieEntities == null)
                 return null;
 
             var movieDetail = new MovieDetails
             {
-                MovieTitle = movieEntity.MovieTitle,
-                MovieReleaseYear = movieEntity.MovieReleaseYear,
-                UserRating = movieEntity.UserRating,
-            };  
-
+                MovieTitle = movieEntities.MovieTitle,
+                MovieReleaseYear = movieEntities.MovieReleaseYear,
+                UserRating = movieEntities.UserRating,
+            };
             return movieDetail;
         }
-        //Movie Update
+        //ArtItem Update
         public bool UpdateMovie(MovieUpdate model)
         {
-            var movieEntity = _dbContext.Movies.SingleOrDefault(m => m.MovieId == model.MovieId);
+            var movieEntity = _dbContext.Movies.SingleOrDefault(e => e.MovieId == model.MovieId);
 
             movieEntity.MovieId = model.MovieId;
             movieEntity.MovieTitle = model.MovieTitle;
             movieEntity.MovieReleaseYear = model.MovieReleaseYear;
             movieEntity.UserRating = model.UserRating;
 
-            return _dbContext.SaveChanges() == 1;
+        return _dbContext.SaveChanges() == 1;
         }
 
-        //Movie Delete
-        public bool DeleteMovie(int id)
+        //ArtItem Delete
+        public bool MovieDelete(int id)
         {
-            var movieEntity = _dbContext.Movies.SingleOrDefault(m => m.MovieId == id);
+            var movieEntity = _dbContext.Movies.SingleOrDefault(e => e.MovieId == id);
 
             _dbContext.Movies.Remove(movieEntity);
             return _dbContext.SaveChanges() == 1;

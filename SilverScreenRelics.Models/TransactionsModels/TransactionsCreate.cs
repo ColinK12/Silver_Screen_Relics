@@ -12,9 +12,6 @@ namespace SilverScreenRelics.Models.TransactionsModels
         public int TransactionId { get; set; }
 
         [Required]
-        public int UserId { get; set; }
-
-        [Required]
         [Display(Name = "Movie Item")]
         public int ArtItemId { get; set; }
 

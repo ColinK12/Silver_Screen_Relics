@@ -1,4 +1,4 @@
-﻿using SilverScreenRelics.Models.ArtItemModels;
+﻿using SilverScreenRelics.Models.Movie;
 using SilverScreenRelics.Services;
 using System;
 using System.Collections.Generic;
@@ -8,70 +8,70 @@ using System.Web.Mvc;
 
 namespace ScreenRelics.Controllers
 {
-    public class ArtItemController : Controller
+    public class MovieController : Controller
     {
-        private ArtItemService artItemService = new ArtItemService();
+        private MovieServices movieService = new MovieServices();
 
         [Authorize]
         // GET: Movie
         public ActionResult Index()
         {
-            var model = artItemService.GetAllArtItems();
+            var model = movieService.GetAllMovies();
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ArtItemCreate model)
+        public ActionResult Create(MovieCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (artItemService.CreateArtItem(model))
+            if (movieService.CreateMovie(model))
             {
-                TempData["SaveResult"] = "Your art Item was created.";
+                TempData["SaveResult"] = "Your movie was created.";
                 return RedirectToAction("Index");
 
             };
-            ModelState.AddModelError("", "Art item could not be created.");
+            ModelState.AddModelError("", "Movie could not be created.");
 
             return View(model);
         }
         public ActionResult Details(int id)
         {
-            var model = artItemService.GetArtItemById(id);
+            var model = movieService.GetMovieById(id);
 
             return View(model);
         }
         public ActionResult Edit(int id)
         {
-            var detail = artItemService.GetArtItemById(id);
+            var detail = movieService.GetMovieById(id);
             var model =
-                new ArtItemUpdate
+                new MovieUpdate
                 {
-                    ArtItemTitle = detail.ArtItemTitle,
-                    ArtItemDescription = detail.ArtItemDescription,
-                    ArtItemPrice = detail.ArtItemPrice,
+                    MovieTitle = detail.MovieTitle,
+                    MovieReleaseYear = detail.MovieReleaseYear,
+                    UserRating = detail.UserRating,
 
                 };
             return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ArtItemUpdate model)
+        public ActionResult Edit(int id, MovieUpdate model)
         {
             if (ModelState.IsValid) return View(model);
 
-            if (model.ArtItemId != id)
+            if (model.MovieId != id)
             {
                 ModelState.AddModelError("", "Id mismatch");
                 return View(model);
             }
 
-            if (artItemService.UpdateArtItem(model))
+            if (movieService.UpdateMovie(model))
             {
-                TempData["SaveResult"] = "Your art item Was updated.";
+                TempData["SaveResult"] = "Your movie Was updated.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Your art item could not be updated.");
+            ModelState.AddModelError("", "Your movie could not be updated.");
             return View(model);
         }
         [HttpPost]
@@ -79,11 +79,11 @@ namespace ScreenRelics.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            artItemService.DeleteArtItem(id);
+            movieService.MovieDelete(id);
 
-            TempData["Save Result"] = "Your art item was Deleted";
-            
-                return RedirectToAction("Index");
+            TempData["Save Result"] = "Your movie was Deleted";
+
+            return RedirectToAction("Index");
         }
     }
 }
