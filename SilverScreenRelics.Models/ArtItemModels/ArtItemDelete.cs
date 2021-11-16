@@ -10,6 +10,6 @@ namespace SilverScreenRelics.Models.ArtItemModels
    public class ArtItemDelete
     {
         [Required]
-        public int ArtItemId { get; set; } //Primary Key
+        public int ArtItemId { get; set; } 
     }
 }

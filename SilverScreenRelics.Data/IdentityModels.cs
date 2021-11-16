@@ -35,10 +35,8 @@ namespace ScreenRelics.Data
             return new ApplicationDbContext();
         }
         public DbSet<ArtItem> ArtItemsSell { get; set; }
-        public DbSet<RelicType> RelicType { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         public DbSet<Transactions> Transactions { get; set; }
-        public DbSet<ArtListings> Art_Listings { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

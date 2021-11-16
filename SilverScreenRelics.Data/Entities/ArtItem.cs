@@ -29,5 +29,7 @@ namespace SilverScreenRelics.Data.Entities
         [Required]
         public DateTimeOffset CreatedUtc { get; set; }
         public DateTimeOffset? ModifiedUtc { get; set; }
+        public List<ArtItem> ArtItems { get; set; } = new List<ArtItem>();//SelectListItem
+
     }
 }

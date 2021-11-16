@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SilverScreenRelics.Models.ArtListingsModels
+namespace SilverScreenRelics.Models.Movie
 {
-    public class ArtListingsDelete
+    public class MovieDelete
     {
         [Required]
-        public int RelicTypeId { get; set; } //Primary Key
+        public int MovieId { get; set; }
     }
 }

@@ -21,12 +21,7 @@ namespace SilverScreenRelics.Services
             {
                 ArtItemTitle = model.ArtItemTitle,
                 ArtItemDescription = model.ArtItemDescription,
-                UserId = model.UserId,
-                RelicId = model.RelicId,
-                RelicType = model.RelicType,
-                IsActive = model.IsActive,
-                CreatedUtc = model.CreatedUtc,
-                ModifiedUtc = model.ModifiedUtc,
+                ArtItemPrice = model.ArtItemPrice,
             };
 
             _dbContext.ArtItemsSell.Add(entity);
@@ -42,8 +37,7 @@ namespace SilverScreenRelics.Services
                 {
                     ArtItemTitle = a.ArtItemTitle,
                     ArtItemDescription = a.ArtItemDescription,
-                    RelicId = a.RelicId,
-                    RelicType = a.RelicType,
+                    ArtItemPrice = a.ArtItemPrice,
                     IsActive = a.IsActive,
                     CreatedUtc = a.CreatedUtc,
                     ModifiedUtc = a.ModifiedUtc
@@ -63,8 +57,6 @@ namespace SilverScreenRelics.Services
             {
                 ArtItemTitle = artItemEntity.ArtItemTitle,
                 ArtItemDescription = artItemEntity.ArtItemDescription,
-                RelicId = artItemEntity.RelicId,
-                RelicType = artItemEntity.RelicTypes,
                 IsActive = artItemEntity.IsActive,
                 CreatedUtc = artItemEntity.CreatedUtc,
                 ModifiedUtc = artItemEntity.ModifiedUtc
@@ -78,6 +70,7 @@ namespace SilverScreenRelics.Services
 
             artItemEntity.ArtItemTitle = model.ArtItemTitle;
             artItemEntity.ArtItemDescription = model.ArtItemDescription;
+            artItemEntity.ArtItemPrice = model.ArtItemPrice;
 
             return _dbContext.SaveChanges() == 1;
         }

@@ -58,10 +58,10 @@
     <Compile Include="ArtItemModels\ArtItemDelete.cs" />
     <Compile Include="ArtItemModels\ArtItemDetail.cs" />
     <Compile Include="ArtItemModels\ArtItemUpdate.cs" />
-    <Compile Include="ArtListingsModels\ArtListingsCreate.cs" />
-    <Compile Include="ArtListingsModels\ArtListingsDelete.cs" />
-    <Compile Include="ArtListingsModels\ArtListingsDetails.cs" />
-    <Compile Include="ArtListingsModels\ArtListingsUpdate.cs" />
+    <Compile Include="MovieModels\MovieCreate.cs" />
+    <Compile Include="MovieModels\MovieDelete.cs" />
+    <Compile Include="MovieModels\MovieDetails.cs" />
+    <Compile Include="MovieModels\MovieUpdate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionsModels\TransactionsCreate.cs" />
     <Compile Include="TransactionsModels\TransactionsDelete.cs" />

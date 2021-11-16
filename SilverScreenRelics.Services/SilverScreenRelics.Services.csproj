@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArtItemService.cs" />
-    <Compile Include="ArtListingsServices.cs" />
+    <Compile Include="MovieServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TransactionService.cs" />
   </ItemGroup>

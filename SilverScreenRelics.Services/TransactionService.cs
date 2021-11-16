@@ -18,7 +18,7 @@ namespace SilverScreenRelics.Services
             Transactions entity = new Transactions
             {
                 TransactionId = model.TransactionId,
-                UserId = model.UserId,
+                UserId = model.User,
                 ArtItemId = model.ArtItemId,
                 ArtItemPrice = model.ArtItemPrice,
 
@@ -29,7 +29,7 @@ namespace SilverScreenRelics.Services
 
         }
         // Get all
-        public List<TransactionDetail> GetAllTransactions()
+        public List<TransactionsDetails> GetAllTransactions()
         {
             {
                 var transactionEntities = _dbContext.Transactions.ToList();
@@ -46,13 +46,13 @@ namespace SilverScreenRelics.Services
         }
 
         //Get (details by id)
-        public TransactionDetail GetartItemById(int transactionId)
+        public TransactionsDetails GetartItemById(int transactionId)
         {
             var transactionEntity = _dbContext.Transactions.Find(transactionId);
             if (transactionEntity == null)
                 return null;
 
-            var transactionDetail = new TransactionDetail
+            var transactionDetail = new TransactionsDetails
             {
                 UserId = transactionEntity.UserId,
                 ArtItemId = transactionEntity.ArtItemId,
@@ -62,7 +62,7 @@ namespace SilverScreenRelics.Services
             return transactionDetail;
         }
         //ArtItem Update
-        public bool UpdateTransaction(TransactionUpdate model)
+        public bool UpdateTransaction(TransactionsUpdate model)
         {
             var transactionEntity = _dbContext.Transactions.SingleOrDefault(e => e.TransactionId == model.TransactionId);
 
