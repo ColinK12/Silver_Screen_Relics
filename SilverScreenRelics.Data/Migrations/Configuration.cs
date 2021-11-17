@@ -10,7 +10,6 @@ namespace SilverScreenRelics.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "ScreenRelics.Data.ApplicationDbContext";
         }
 
         protected override void Seed(ScreenRelics.Data.ApplicationDbContext context)

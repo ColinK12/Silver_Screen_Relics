@@ -57,13 +57,9 @@
     <Compile Include="Entities\ArtItem.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Entities\Transactions.cs" />
-    <Compile Include="Migrations\202111142104450_InitialCreate.cs" />
-    <Compile Include="Migrations\202111142104450_InitialCreate.Designer.cs">
-      <DependentUpon>202111142104450_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202111162324055_InitCommit.cs" />
-    <Compile Include="Migrations\202111162324055_InitCommit.Designer.cs">
-      <DependentUpon>202111162324055_InitCommit.cs</DependentUpon>
+    <Compile Include="Migrations\202111170109348_first.cs" />
+    <Compile Include="Migrations\202111170109348_first.Designer.cs">
+      <DependentUpon>202111170109348_first.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +70,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111142104450_InitialCreate.resx">
-      <DependentUpon>202111142104450_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202111162324055_InitCommit.resx">
-      <DependentUpon>202111162324055_InitCommit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111170109348_first.resx">
+      <DependentUpon>202111170109348_first.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
