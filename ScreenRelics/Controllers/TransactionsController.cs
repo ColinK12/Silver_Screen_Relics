@@ -35,25 +35,25 @@ namespace ScreenRelics.Controllers
 
             return View(model);
         }
-        public ActionResult Details(int id)
+        public ActionResult Details()
         {
-            var model = transactionService.GetAllTransactions(id);
+            var model = transactionService.GetAllTransactions();
 
             return View(model);
         }
-        //public ActionResult Edit(int id)
-        //{
-        //    var detail = transactionService.GetTransactionsById(id);
-        //    var model =new TransactionsUpdate
-        //        
-        //        {
-        //            TransactionId = detail.TransactionId,
-        //            ArtItemId = detail.ArtItemId,
-        //            ArtItemPrice = detail.ArtItemPrice,
-        //
-        //        };
-        //    return View(model);
-        //}
+        public ActionResult Edit(int id)
+        {
+            var detail = transactionService.GetTransactionById(id);
+            var model = new TransactionsUpdate
+
+            {
+                TransactionId = detail.TransactionId,
+                ArtItemId = detail.ArtItemId,
+                ArtItemPrice = detail.ArtItemPrice,
+
+            };
+            return View(model);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, TransactionsUpdate model)
@@ -86,3 +86,4 @@ namespace ScreenRelics.Controllers
             return RedirectToAction("Index");
         }
     }
+}

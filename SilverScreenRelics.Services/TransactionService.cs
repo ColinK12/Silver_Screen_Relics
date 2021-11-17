@@ -50,7 +50,7 @@ namespace SilverScreenRelics.Services
         }
 
         //Get (details by id)
-        public TransactionsDetails GetartItemById(int transactionId)
+        public TransactionsDetails GetTransactionById(int transactionId)
         {
             var transactionEntity = _dbContext.Transactions.Find(transactionId);
             if (transactionEntity == null)

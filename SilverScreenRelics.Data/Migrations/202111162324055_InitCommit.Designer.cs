@@ -7,13 +7,13 @@ namespace SilverScreenRelics.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class FirstMigration : IMigrationMetadata
+    public sealed partial class InitCommit : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitCommit));
         
         string IMigrationMetadata.Id
         {
-            get { return "202111161908094_FirstMigration"; }
+            get { return "202111162324055_InitCommit"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,0 +1,42 @@
+﻿@model SilverScreenRelics.Models.TransactionsModels.TransactionsDetails
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TransactionsDetails</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtItemId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtItemId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArtItemPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArtItemPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TransactionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

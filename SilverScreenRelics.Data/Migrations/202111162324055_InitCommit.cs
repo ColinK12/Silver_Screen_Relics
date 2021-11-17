@@ -3,7 +3,7 @@ namespace SilverScreenRelics.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class FirstMigration : DbMigration
+    public partial class InitCommit : DbMigration
     {
         public override void Up()
         {
@@ -32,7 +32,6 @@ namespace SilverScreenRelics.Data.Migrations
                         ArtItemTitle = c.String(nullable: false),
                         ArtItemDescription = c.String(nullable: false),
                         ArtItemPrice = c.Double(nullable: false),
-                        UserId = c.String(maxLength: 128),
                         IsActive = c.Boolean(nullable: false),
                         CreatedUtc = c.DateTimeOffset(nullable: false, precision: 7),
                         ModifiedUtc = c.DateTimeOffset(precision: 7),
@@ -40,8 +39,6 @@ namespace SilverScreenRelics.Data.Migrations
                     })
                 .PrimaryKey(t => t.ArtItemId)
                 .ForeignKey("dbo.ArtItem", t => t.ArtItem_ArtItemId)
-                .ForeignKey("dbo.ApplicationUser", t => t.UserId)
-                .Index(t => t.UserId)
                 .Index(t => t.ArtItem_ArtItemId);
             
             CreateTable(
@@ -53,15 +50,12 @@ namespace SilverScreenRelics.Data.Migrations
                         MovieReleaseYear = c.Int(nullable: false),
                         UserRating = c.Int(nullable: false),
                         ArtItemId = c.Int(nullable: false),
-                        UserId = c.String(maxLength: 128),
                         Movie_MovieId = c.Int(),
                     })
                 .PrimaryKey(t => t.MovieId)
                 .ForeignKey("dbo.ArtItem", t => t.ArtItemId, cascadeDelete: true)
                 .ForeignKey("dbo.Movie", t => t.Movie_MovieId)
-                .ForeignKey("dbo.ApplicationUser", t => t.UserId)
                 .Index(t => t.ArtItemId)
-                .Index(t => t.UserId)
                 .Index(t => t.Movie_MovieId);
             
             CreateTable(
@@ -69,18 +63,15 @@ namespace SilverScreenRelics.Data.Migrations
                 c => new
                     {
                         TransactionId = c.Int(nullable: false, identity: true),
-                        UserId = c.String(maxLength: 128),
                         ArtItemId = c.Int(nullable: false),
                         ArtItemPrice = c.Double(nullable: false),
                     })
                 .PrimaryKey(t => t.TransactionId)
                 .ForeignKey("dbo.ArtItem", t => t.ArtItemId, cascadeDelete: true)
-                .ForeignKey("dbo.ApplicationUser", t => t.UserId)
-                .Index(t => t.UserId)
                 .Index(t => t.ArtItemId);
             
-            AddColumn("dbo.IdentityUserRole", "ApplicationUser_Id", c => c.String(maxLength: 128));
             AddColumn("dbo.IdentityUserRole", "IdentityRole_Id", c => c.String(maxLength: 128));
+            AddColumn("dbo.IdentityUserRole", "ApplicationUser_Id", c => c.String(maxLength: 128));
             AddColumn("dbo.IdentityUserClaim", "ApplicationUser_Id", c => c.String(maxLength: 128));
             AddColumn("dbo.IdentityUserLogin", "ApplicationUser_Id", c => c.String(maxLength: 128));
             AlterColumn("dbo.IdentityRole", "Name", c => c.String());
@@ -92,10 +83,10 @@ namespace SilverScreenRelics.Data.Migrations
             AlterColumn("dbo.IdentityUserLogin", "ProviderKey", c => c.String());
             AddPrimaryKey("dbo.IdentityUserRole", "UserId");
             AddPrimaryKey("dbo.IdentityUserLogin", "UserId");
+            CreateIndex("dbo.IdentityUserRole", "IdentityRole_Id");
+            CreateIndex("dbo.IdentityUserRole", "ApplicationUser_Id");
             CreateIndex("dbo.IdentityUserClaim", "ApplicationUser_Id");
             CreateIndex("dbo.IdentityUserLogin", "ApplicationUser_Id");
-            CreateIndex("dbo.IdentityUserRole", "ApplicationUser_Id");
-            CreateIndex("dbo.IdentityUserRole", "IdentityRole_Id");
             AddForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole", "Id");
             AddForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser", "Id");
             AddForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser", "Id");
@@ -108,24 +99,18 @@ namespace SilverScreenRelics.Data.Migrations
             DropForeignKey("dbo.IdentityUserLogin", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserClaim", "ApplicationUser_Id", "dbo.ApplicationUser");
             DropForeignKey("dbo.IdentityUserRole", "IdentityRole_Id", "dbo.IdentityRole");
-            DropForeignKey("dbo.Transactions", "UserId", "dbo.ApplicationUser");
             DropForeignKey("dbo.Transactions", "ArtItemId", "dbo.ArtItem");
-            DropForeignKey("dbo.Movie", "UserId", "dbo.ApplicationUser");
             DropForeignKey("dbo.Movie", "Movie_MovieId", "dbo.Movie");
             DropForeignKey("dbo.Movie", "ArtItemId", "dbo.ArtItem");
-            DropForeignKey("dbo.ArtItem", "UserId", "dbo.ApplicationUser");
             DropForeignKey("dbo.ArtItem", "ArtItem_ArtItemId", "dbo.ArtItem");
-            DropIndex("dbo.Transactions", new[] { "ArtItemId" });
-            DropIndex("dbo.Transactions", new[] { "UserId" });
-            DropIndex("dbo.Movie", new[] { "Movie_MovieId" });
-            DropIndex("dbo.Movie", new[] { "UserId" });
-            DropIndex("dbo.Movie", new[] { "ArtItemId" });
-            DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
-            DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserLogin", new[] { "ApplicationUser_Id" });
             DropIndex("dbo.IdentityUserClaim", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Transactions", new[] { "ArtItemId" });
+            DropIndex("dbo.IdentityUserRole", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.IdentityUserRole", new[] { "IdentityRole_Id" });
+            DropIndex("dbo.Movie", new[] { "Movie_MovieId" });
+            DropIndex("dbo.Movie", new[] { "ArtItemId" });
             DropIndex("dbo.ArtItem", new[] { "ArtItem_ArtItemId" });
-            DropIndex("dbo.ArtItem", new[] { "UserId" });
             DropPrimaryKey("dbo.IdentityUserLogin");
             DropPrimaryKey("dbo.IdentityUserRole");
             AlterColumn("dbo.IdentityUserLogin", "ProviderKey", c => c.String(nullable: false, maxLength: 128));
@@ -137,8 +122,8 @@ namespace SilverScreenRelics.Data.Migrations
             AlterColumn("dbo.IdentityRole", "Name", c => c.String(nullable: false, maxLength: 256));
             DropColumn("dbo.IdentityUserLogin", "ApplicationUser_Id");
             DropColumn("dbo.IdentityUserClaim", "ApplicationUser_Id");
-            DropColumn("dbo.IdentityUserRole", "IdentityRole_Id");
             DropColumn("dbo.IdentityUserRole", "ApplicationUser_Id");
+            DropColumn("dbo.IdentityUserRole", "IdentityRole_Id");
             DropTable("dbo.Transactions");
             DropTable("dbo.Movie");
             DropTable("dbo.ArtItem");
