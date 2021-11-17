@@ -12,6 +12,8 @@ namespace SilverScreenRelics.Services
     public class MovieServices
     {
     private readonly ApplicationDbContext _dbContext = new ApplicationDbContext();
+    private readonly List<Movie> ListOfMovies = new List<Movie>();
+
         public bool CreateMovie(MovieCreate model)
         {
             Movie entity = new Movie
@@ -22,6 +24,7 @@ namespace SilverScreenRelics.Services
                 UserRating = model.UserRating
             };
 
+            ListOfMovies.ToList().Add(entity);
             _dbContext.Movies.Add(entity);
             return _dbContext.SaveChanges() == 1;
 

@@ -57,9 +57,13 @@
     <Compile Include="Entities\ArtItem.cs" />
     <Compile Include="Entities\Movie.cs" />
     <Compile Include="Entities\Transactions.cs" />
-    <Compile Include="Migrations\202111170109348_first.cs" />
-    <Compile Include="Migrations\202111170109348_first.Designer.cs">
-      <DependentUpon>202111170109348_first.cs</DependentUpon>
+    <Compile Include="Migrations\202111170450519_First.cs" />
+    <Compile Include="Migrations\202111170450519_First.Designer.cs">
+      <DependentUpon>202111170450519_First.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111170505586_second.cs" />
+    <Compile Include="Migrations\202111170505586_second.Designer.cs">
+      <DependentUpon>202111170505586_second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,8 +74,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202111170109348_first.resx">
-      <DependentUpon>202111170109348_first.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202111170450519_First.resx">
+      <DependentUpon>202111170450519_First.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111170505586_second.resx">
+      <DependentUpon>202111170505586_second.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

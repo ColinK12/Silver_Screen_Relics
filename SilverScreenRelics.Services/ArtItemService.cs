@@ -13,6 +13,7 @@ namespace SilverScreenRelics.Services
     public class ArtItemService
     {
         private readonly ApplicationDbContext _dbContext = new ApplicationDbContext();
+        private readonly List<ArtItem> ListOfArtItems = new List<ArtItem>();
 
         //Create
         public bool CreateArtItem(ArtItemCreate model)
@@ -24,6 +25,7 @@ namespace SilverScreenRelics.Services
                 ArtItemPrice = model.ArtItemPrice,
             };
 
+            ListOfArtItems.ToList().Add(entity);
             _dbContext.ArtItemsSell.Add(entity);
             return _dbContext.SaveChanges() == 1;
 
